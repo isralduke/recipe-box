@@ -146,17 +146,9 @@ public class Recipe {
         // using a for loop to list the ingredients
         for (int i = 0; i < recipeIngredients.size(); i++) {  
             recipeIngredients.get(i);
-            System.out.println(i + ". " + recipeIngredients.get(i).getIngredientName() + ": " + recipeIngredients.get(i).getIngredientTotalCalories() + " calories.");
+            System.out.println((i+1) + ". " + recipeIngredients.get(i).getIngredientName() + ": " + recipeIngredients.get(i).getIngredientTotalCalories() + " calories.");
         }
         System.out.println("Instructions: " + recipeInstructions);
-    }
-    
-    
-    
-    // this will print the recipe when it’s time
-    public void recipeDeleter() {
-        
-        
     }
     
     

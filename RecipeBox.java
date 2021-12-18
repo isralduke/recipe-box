@@ -17,7 +17,6 @@ public class RecipeBox {
     private ArrayList<Recipe> recipeList;
     
     
-    
     // recipe list, set and get
     /**
      * @param recipeList This sets the list of Recipes
@@ -33,7 +32,6 @@ public class RecipeBox {
     }
     
     
-    
     // RecipeBox Constructor and overload
     public RecipeBox() {
         this.recipeList = new ArrayList();
@@ -43,17 +41,20 @@ public class RecipeBox {
     }
     
     
-    
     // RecipeBox print all recipe names
     public void recipeNamesPrintAll(){
         System.out.println("");
         System.out.println("Here’s the names of all the Recipes you have created.");
-        for( int i = 0; i < recipeList.size(); i++ ) {
-            System.out.println((i + 1) + ". " + recipeList.get(i).getRecipeName());
+        if ( recipeList.size() == 0 ){
+            System.out.println("No Recipes. You should add one now.");
+        }
+        else {
+            for( int i = 0; i < recipeList.size(); i++ ) {
+                System.out.println((i + 1) + ". " + recipeList.get(i).getRecipeName());
+            }
         }
         System.out.println("");
     }
-    
     
     
     // RecipeBox print the recipe details
@@ -65,7 +66,6 @@ public class RecipeBox {
         }
         System.out.println("");
     }
-    
     
     
     // add a new Recipe
@@ -110,9 +110,10 @@ public class RecipeBox {
             }
             else if ( menuScannerInput == 4 ){
                 recipeVault.recipeNamesPrintAll();
-                System.out.println("Which Recipe do you want to print? Enter the Recipe’s name.");
-                String recipeSelection = menuScanner.next();
-                recipeVault.recipePrintAllDetails(recipeSelection);
+                System.out.println("Which Recipe do you want to delete? Enter the Recipe’s number.");
+                int recipeSelection = menuScanner.nextInt();
+                recipeSelection = recipeSelection - 1;
+                recipeVault.recipeList.remove(recipeSelection);
             }
             else {
                 System.out.println("");
@@ -120,11 +121,8 @@ public class RecipeBox {
                 System.out.println("1. Add a Recipe");
                 System.out.println("2. Print all Recipe names");
                 System.out.println("3. Print a specific Recipe");
-                System.out.println("3. Delete a specific Recipe");
-            }
-            
-        }
-        
+                System.out.println("4. Delete a specific Recipe");
+            }   
+        }   
     }
-    
 }
