@@ -48,8 +48,8 @@ public class RecipeBox {
     public void recipeNamesPrintAll(){
         System.out.println("");
         System.out.println("Here’s the names of all the Recipes you have created.");
-        for( Recipe currentRecipe : recipeList ) {
-            System.out.println(currentRecipe.getRecipeName());
+        for( int i = 0; i < recipeList.size(); i++ ) {
+            System.out.println((i + 1) + ". " + recipeList.get(i).getRecipeName());
         }
         System.out.println("");
     }
